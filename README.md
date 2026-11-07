@@ -38,3 +38,16 @@ sudo tar xzf dolphin-startpage-*-arch.tar.gz -C /
 ```
 
 Settings are stored in `~/.config/dolphinstartpagerc`.
+
+## Uninstall
+1. Remove the two plugin files. This works for both the binary release and a self-built install:
+   ```sh
+   sudo find /usr/lib /usr/lib64 \( -name dolphinstartpage.so -o -name kio_startpage.so \) -print -delete
+   ```
+2. Reset the Dolphin settings the plugin changed on its first run (start location and "restore last session"), and delete its own config:
+   ```sh
+   kwriteconfig6 --file dolphinrc --group General --key HomeUrl --delete
+   kwriteconfig6 --file dolphinrc --group General --key RememberOpenedTabs --delete
+   rm -f ~/.config/dolphinstartpagerc
+   ```
+3. Restart Dolphin: `killall dolphin; dolphin`
