@@ -1,0 +1,9 @@
+{
+  "KDE-KIO-Protocols": {
+    "startpage": {
+      "protocol": "startpage", "input": "none", "output": "filesystem",
+      "listing": ["Name", "Type", "URL"], "reading": false,
+      "Icon": "view-grid", "Class": ":local", "maxInstances": 4
+    }
+  }
+}
